@@ -1,0 +1,5 @@
+{
+    "dbURI": "mongodb+srv://ajitesh:Zj0oA8IH0ukbjeL8@cluster0.ziaqylv.mongodb.net/?retryWrites=true&w=majority",
+    "jwtsecret": "your jwt secret",
+    "StripeAPIKey": "YOUR STRIPE SECRET API KEY"
+}
