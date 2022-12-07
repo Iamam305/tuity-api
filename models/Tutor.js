@@ -4,30 +4,30 @@ const Schema = mongoose.Schema;
 const TutorSchema = new Schema({
   name: {
     type: String,
-    // required: true,
+    required: true,
   },
   age: {
     type: Number,
-    // required: true,
+    required: true, 
   },
   image: {
     type: String,
-    // required: true,
+    required: true,
   },
   price: {
     type: Number,
-    // required: true,
+    required: true,
   },
   qualification: {
     type: String,
-    // required: true,
+    required: true,
   },
   timeSlots:[{
     type:String,
   }],
   description: {
     type: String,
-    // required: true,
+    required: true,
   },
 });
 module.exports = Tutor = mongoose.model('tutor',TutorSchema);

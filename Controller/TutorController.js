@@ -9,9 +9,9 @@ const get_Tutors = async (req, res) => {
 
 const post_Tutor = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
-
-    if ((user = "admin")) {
+    const user = await User.findById(req.user.id);
+  console.log(user?.role);
+    if (user.role == "admin") {
       const newTutor = new Tutor(req.body);
       newTutor.save().then((Tutor) => res.json(Tutor));
     } else {
@@ -26,7 +26,7 @@ const update_Tutor = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
 
-    if ((user = "admin")) {
+    if (user.role == "admin") {
       Tutor.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function (
         Tutor
       ) {
@@ -45,17 +45,18 @@ const update_Tutor = async (req, res) => {
 const delete_Tutor = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-
-    if ((user = "admin")) {
+    if (user.role == "admin") {
       Tutor.findByIdAndDelete({ _id: req.params.id }).then(function (Tutor) {
         res.json({ success: true });
       });
     } else {
-      res.status(403).json("You are not allowed to do this action!");
+      res
+        .status(403)
+        .json("You are not allowed to do this action!" + user.role);
     }
   } catch (error) {
     res.sendStatus(500);
   }
 };
 
-module.exports = { get_Tutors, delete_Tutor, post_Tutor, update_Tutor };
+module.exports = { get_Tutors, post_Tutor, delete_Tutor, update_Tutor };

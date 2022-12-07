@@ -5,7 +5,7 @@ const {
   update_Tutor,
   delete_Tutor,
 } = require("../Controller/TutorController");
-const auth = require("../middleware/auth.js");
+const auth = require("../middleware/auth.js"); 
 const router = Router();
 
 router.get("/tutors", auth, get_Tutors);
