@@ -1,6 +1,6 @@
 const Booking = require("../models/Booking");
 const Tutor = require("../models/Tutor");
-import { Mongoose } from "mongoose";
+
 const get_booking_tutors = async (req, res) => {
   const UserId = req.user.id;
   try {
