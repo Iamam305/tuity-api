@@ -6,7 +6,7 @@ const cors = require('cors')
 require('dotenv').config()
 const AuthRouter = require('./Routes/Auth');
 const TutorRouter = require('./Routes/Tutor');
-
+const BookingRouter = require('./Routes/Booking')
 
 const app = express();
 app.use(cors())
@@ -14,6 +14,7 @@ app.use(express.json());
  
 app.use('/api',AuthRouter);
 app.use('/api',TutorRouter); 
+app.use('/api',BookingRouter); 
 
  
 // connecting to mongoDB and then running server on port 4000
