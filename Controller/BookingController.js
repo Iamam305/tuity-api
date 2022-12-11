@@ -69,3 +69,5 @@ const cancel_booking = async (req, res) => {
     res.status(500).send("Something went wrong");
   }
 };
+
+module.exports = {add_booking_tutor, get_booking_tutors, cancel_booking}

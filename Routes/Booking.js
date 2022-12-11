@@ -1,9 +1,9 @@
 const { Router } = require("express");
-const cartController = require("../controllers/cartControllers");
+const { get_booking_tutors } = require("../Controller/BookingController");
 const router = Router();
 const auth = require("../middleware/auth");
-router.get("/booking/:id", auth, cartController.get_cart_items);
-router.post("/booking/:id", auth, cartController.add_cart_item);
-router.delete("/booking/:userId/:itemId", auth, cartController.delete_item);
+router.get("/booking/:id", auth, get_booking_tutors);
+router.post("/booking/:id", auth, add_booking_tutor);
+router.post("/booking/:userId/:itemId", auth, cancel_booking);
 
 module.exports = router;
