@@ -22,4 +22,4 @@ const BookingSchema = new Schema({
   ],
 });
 
-module.exports = Booking = mongoose.model("booking",CartSchema);
+module.exports = Booking = mongoose.model("booking",BookingSchema);
