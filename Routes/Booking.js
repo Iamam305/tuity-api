@@ -1,5 +1,9 @@
 const { Router } = require("express");
-const { get_booking_tutors } = require("../Controller/BookingController");
+const {
+  get_booking_tutors,
+  add_booking_tutor,
+  cancel_booking,
+} = require("../Controller/BookingController");
 const router = Router();
 const auth = require("../middleware/auth");
 router.get("/booking/:id", auth, get_booking_tutors);
