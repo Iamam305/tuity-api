@@ -2,11 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const config = require('config');
+const cors = require('cors')
+require('dotenv').config()
 const AuthRouter = require('./Routes/Auth');
 const TutorRouter = require('./Routes/Tutor');
 
 
 const app = express();
+app.use(cors())
 app.use(express.json());
  
 app.use('/api',AuthRouter);
@@ -18,5 +21,5 @@ const dbURI = config.get('dbURI');
 const port = process.env.PORT || 5000;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
-  .then(() => app.listen(port, () => console.log(`Server running on http://localhost:${port}`)))
+  .then(() => app.listen(port, () => console.log(`Server running on ${port}`)))
   .catch((err) => console.log(err));

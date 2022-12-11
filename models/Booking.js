@@ -13,6 +13,11 @@ const BookingSchema = new Schema({
       time: String,
       name: String,
       price: Number,
+      BookingStatus: {
+       type: String,
+       default:'confirm'
+      }
+        
     },
   ],
 });
