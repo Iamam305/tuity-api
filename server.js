@@ -10,8 +10,9 @@ const BookingRouter = require('./Routes/Booking')
 
 const app = express();
 app.use(cors({
-  origin:'*'
-}))
+  origin: '*',
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
 app.use(express.json());
  
 app.use('/api',AuthRouter);
