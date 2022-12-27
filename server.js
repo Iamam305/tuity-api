@@ -9,10 +9,7 @@ const TutorRouter = require('./Routes/Tutor');
 const BookingRouter = require('./Routes/Booking')
 
 const app = express();
-app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
+app.use(cors());
 app.use(express.json());
  
 app.use('/api',AuthRouter);
