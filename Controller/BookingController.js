@@ -19,7 +19,9 @@ const get_booking_tutors = async (req, res) => {
 const add_booking_tutor = async (req, res) => {
   const userId = req.user.id;
 
-  const { TutorId, time } = req.body;
+  // const { TutorId, time } = req.body;
+  const { TutorId } = req.body;
+
 
   try {
     let bookings = await Booking.findOne({ userId });
@@ -34,14 +36,14 @@ const add_booking_tutor = async (req, res) => {
     const name = tutor.name;
 
     if (bookings) {
-      cart.tutors.push({ TutorId, time, price, name });
+      bookings.tutors.push({ TutorId, time, price, name });
       bookings = await bookings.save();
       return res.status(201).send(bookings);
     } else {
       const newBooking = await Booking.create({
         TutorId,
-        bookings: [{ TutorId, time, price, name }],
-        bill: bookings.length * price,
+        bookings: [{ TutorId, price, name }],
+        // bill: bookings.length * price,
       });
       return res.status(201).send(newBooking);
     }

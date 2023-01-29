@@ -24,7 +24,7 @@ const signup = (req, res) => {
           jwt.sign(
             { id: user._id },
             config.get("jwtsecret"),
-            { expiresIn: 3600 },
+            { expiresIn: 172800 },
             (err, token) => {
               if (err) throw err;
               res.json({
@@ -58,7 +58,7 @@ const login = async (req, res) => {
       jwt.sign(
         { id: user._id },
         config.get("jwtsecret"),
-        { expiresIn: 3600 },
+        { expiresIn: 172800 },
         (err, token) => {
           if (err) throw err;
           res.json({
