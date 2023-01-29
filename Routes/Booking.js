@@ -6,8 +6,10 @@ const {
 } = require("../Controller/BookingController");
 const router = Router();
 const auth = require("../middleware/auth");
-router.get("/booking/:id", auth, get_booking_tutors);
-router.post("/booking/:id", auth, add_booking_tutor);
-router.post("/booking/:userId/:itemId", auth, cancel_booking);
+
+
+router.get("/booking/", auth, get_booking_tutors);
+router.post("/booking/", auth, add_booking_tutor);
+router.post("/booking/", auth, cancel_booking);
 
 module.exports = router;
