@@ -12,7 +12,7 @@ const TutorSchema = new Schema({
   },
   image: {
     type: String,
-    required: true,
+    required: true, 
   },
   price: {
     type: Number,
@@ -31,3 +31,4 @@ const TutorSchema = new Schema({
   },
 });
 module.exports = Tutor = mongoose.model('tutor',TutorSchema);
+  
